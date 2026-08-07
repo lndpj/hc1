@@ -40,7 +40,7 @@ IrrlichtManager::IrrlichtManager()
     mDefaultEditorMaterial.AmbientColor = video::SColor(255, 255, 255, 255);
     mDefaultEditorMaterial.MaterialType = video::EMT_SOLID;
     mDefaultEditorMaterial.Lighting = false;
-    mDefaultEditorMaterial.ZWriteEnable = true;
+    mDefaultEditorMaterial.ZWriteEnable = video::EZW_ON;
     mDefaultEditorMaterial.Wireframe = true;
     mDefaultEditorMaterial.BackfaceCulling = false;
     mDefaultEditorMaterial.setFlag(video::EMF_BILINEAR_FILTER, false);
@@ -108,7 +108,7 @@ irr::IrrlichtDevice* IrrlichtManager::CreateIrrlichtDevicePC(const Config& confi
 	creationParameters.DriverType = video::EDT_OGLES2;
 #endif
     creationParameters.EventReceiver = mEventReceiver;
-    creationParameters.Fullscreen = config.GetFullscreen();
+    creationParameters.Fullscreen = false;
     creationParameters.HighPrecisionFPU  = false;
     creationParameters.Stencilbuffer = false;
     creationParameters.Vsync = config.GetVSync() > 0 ? true : false;
